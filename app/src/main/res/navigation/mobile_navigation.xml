@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_story_list">
+
+    <fragment
+        android:id="@+id/nav_story_list"
+        android:name="com.rmaproject.storyapp.ui.storylist.StoryListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_list_story">
+        <action
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_nav_story_list_to_nav_login"
+            app:destination="@id/nav_login" />
+        <action
+            android:id="@+id/action_nav_story_list_to_nav_detail"
+            app:destination="@id/nav_detail"/>
+        <action
+            android:id="@+id/action_nav_story_list_to_nav_add_story"
+            app:destination="@id/nav_add_story" />
+        <action
+            android:id="@+id/action_nav_story_list_to_nav_story_map"
+            app:destination="@id/nav_story_map" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.rmaproject.storyapp.ui.auth.LoginFragment"
+        android:label="@string/nav_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/mobile_navigation"
+            android:id="@+id/action_nav_login_to_nav_story_list"
+            app:destination="@id/nav_story_list" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_register"
+            app:destination="@id/nav_register" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.rmaproject.storyapp.ui.auth.RegisterFragment"
+        android:label="@string/nav_register"
+        tools:layout="@layout/fragment_register"/>
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.rmaproject.storyapp.ui.details.DetailFragment"
+        android:label="@string/nav_detail"
+        tools:layout="@layout/fragment_detail"/>
+    <fragment
+        android:id="@+id/nav_add_story"
+        android:name="com.rmaproject.storyapp.ui.addstory.AddStoryFragment"
+        android:label="@string/nav_add_story"
+        tools:layout="@layout/fragment_add_story"/>
+    <fragment
+        android:id="@+id/nav_story_map"
+        android:name="com.rmaproject.storyapp.ui.maps.StoryMapFragment"
+        android:label="Story Map"
+        tools:layout="@layout/fragment_story_map" />
+</navigation>

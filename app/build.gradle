@@ -1,0 +1,119 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+}
+
+android {
+    namespace 'com.rmaproject.storyapp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.rmaproject.storyapp"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.activity:activity-ktx:1.6.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
+
+    //Test
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    testImplementation "androidx.arch.core:core-testing:2.1.0" // InstantTaskExecutorRule
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1" //main coroutine rule
+    testImplementation 'org.mockito:mockito-core:3.12.4'
+    androidTestImplementation 'org.mockito:mockito-android:3.12.4' // Mockito Android Test
+    testImplementation 'org.mockito:mockito-inline:3.12.4'
+
+    //Mockwebserver - creating fake web
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:5.0.0-alpha.5"
+    androidTestImplementation "com.squareup.okhttp3:okhttp-tls:5.0.0-alpha.5"
+    debugImplementation "androidx.fragment:fragment-testing:1.6.0-alpha04"
+    debugImplementation "androidx.fragment:fragment-testing-manifest:1.6.0-alpha04"
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.4.0' // Idling resource for testing
+    androidTestImplementation("androidx.navigation:navigation-testing:2.5.3")
+
+    //Paging
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+    implementation 'androidx.room:room-paging:2.4.3'
+
+    //Room
+    implementation 'androidx.room:room-ktx:2.4.3'
+    implementation 'androidx.room:room-runtime:2.4.3'
+    kapt 'androidx.room:room-compiler:2.4.3'
+
+    //ViewBinding Delegate
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.6'
+
+    //KotPref
+    implementation 'com.chibatching.kotpref:kotpref:2.13.1'
+    implementation 'com.chibatching.kotpref:initializer:2.13.1'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5"
+
+    //Coil
+    implementation("io.coil-kt:coil:2.2.2")
+
+    //Room Database
+    implementation 'androidx.room:room-ktx:2.4.3'
+    kapt 'androidx.room:room-compiler:2.4.3'
+
+    //Koleton
+    implementation("com.ericktijerou.koleton:koleton:1.0.0-beta01")
+
+    //Shimmer Effect
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    //Image picker
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+}
